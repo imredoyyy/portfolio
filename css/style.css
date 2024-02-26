@@ -1,0 +1,259 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap');
+
+/* CSS File Import */
+@import url("./components/header.css");
+@import url("./components/mobile-nav.css");
+@import url("./components/hero.css");
+@import url("./components/about.css");
+@import url("./components/skills.css");
+@import url("./components/work.css");
+@import url("./components/contact.css");
+@import url("./components/footer.css");
+@import url("./components/portfolio.css");
+@import url("./components/utilities.css");
+
+/* CSS variables for reusability */
+
+:root {
+  --open-sans: 'Open Sans', sans-serif, system-ui;
+  --dm-sans: 'DM Sans', sans-serif, system-ui;
+
+  --clr-dark: #070a13;
+  --clr-light: #f1f5f9;
+  --gray-200: rgb(55, 65, 81);
+  --clr-slate400: #94a3b8;
+  --clr-slate600: #475569;
+  --clr-slate800: #1e293b;
+  --clr-text: var(--clr-slate400);
+  --clr-rose: #e11d48;
+  --clr-violet: #6563FF;
+  --clr-input: #7977d9;
+  --app-gray-50: rgb(17, 24, 39);
+  --app-gray-default: rgb(3, 7, 18);
+
+
+  /* sizes */
+  --size-xxs: 0.5rem;
+  --size-xs: 0.75rem;
+  --size-sm: 0.875rem;
+  --size-base: 1rem;
+  --size-lg: 1.125rem;
+  --size-xl: 1.25rem;
+  --size-2xl: 1.5rem;
+  --size-3xl: 1.875rem;
+  --size-4xl: 2.25rem;
+  --size-5xl: 3rem;
+  --size-6xl: 3.75rem;
+  --size-7xl: 4.5rem;
+  --size-8xl: 6rem;
+  --size-9xl: 8rem;
+  --size-10xl: 10rem;
+}
+
+
+body.light-mode {
+  --clr-light: #070a13;
+  --clr-dark: #f1f5f9;
+  --gray-200: rgb(229, 231, 235);
+  --clr-text: var(--clr-slate800);
+  --clr-slate400: #1e293b;
+  --clr-slate600: #1e293b;
+  --clr-slate800: #1e293b;
+  --clr-input: #5452bd;
+  --app-gray-50: rgb(249, 250, 251);
+  --app-gray-default: rgb(255, 255, 255);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  scroll-behavior: smooth;
+  word-wrap: break-word;
+  line-height: calc(1em + 0.5rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color:   var(--clr-dark);
+  font-family: var(--open-sans);
+  color: var(--clr-text);
+  transition: font-size 1s ease;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  padding-top: 84px;
+  transition: color 0.3s ease-in, background-color 0.3s ease-in, height 0.8s ease-in,
+              width 0.8s ease-in, font-size 0.8s ease-in;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  user-select: none;
+}
+
+button {
+  display: inline-block;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:active {
+  background-color: transparent !important;
+  text-decoration: none;
+  color: inherit;
+}
+
+
+strong {
+  color: var(--clr-violet);
+}
+
+
+/* Loader Style Here */
+  .loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    gap: 0.5rem;
+    transition: 0.3s;
+    background-color: var(--clr-dark);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .bar {
+    width: 3.5px;
+    height: 2.5rem;
+    background-color: rgb(101, 99, 255);
+    transition: background-color 0.3s ease;
+  }
+
+  .bar:nth-child(1) {
+    animation: loader-bar 1s ease-in-out -0.45s infinite;
+  }
+
+  .bar:nth-child(2) {
+    animation: loader-bar 1s ease-in-out -0.3s infinite;
+  }
+
+  .bar:nth-child(3) {
+    animation: loader-bar 1s ease-in-out -0.15s infinite;
+  }
+
+  .bar:nth-child(4) {
+    animation: loader-bar 1s ease-in-out infinite;
+  }
+
+  @keyframes loader-bar {
+    0%,
+    100% {
+      transform: scaleY(0.35);
+    }
+
+    50% {
+      transform: scaleY(1.1);
+    }
+  }
+
+  .loader-container.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+
+  /* Scroll Top Button Style */
+.scroll-top {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--clr-violet);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  right: 2rem;
+  bottom: 8vh;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+}
+
+.scroll-top > svg {
+  fill: #f1f5f9;
+}
+
+
+
+
+
+
+
+
+/* Hide Scrollbar on Chrome, Opera, Safari */
+.header__nav::-webkit-scrollbar,
+.hero::-webkit-scrollbar,
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scroll bar on IE, Edge, FireFox */
+.header__nav,
+.hero,
+.container {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+/* Scrollbar Style for Chrome, Opera, Safari*/
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+  background-color: var(--clr-dark);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: var(--clr-violet);
+  outline: 1px solid var(--clr-violet);
+  border-radius: 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+

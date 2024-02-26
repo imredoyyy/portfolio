@@ -1,0 +1,42 @@
+.footer__attribute-box {
+  background-color: var(--app-gray-50);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  width: 100%;
+}
+
+.footer__attribute {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__attribute > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: var(--size-sm);
+  font-weight: 400;
+  font-family: var(--dm-sans);
+}
+
+.footer__attribute > p> svg {
+  height: var(--size-base);
+  width: var(--size-base);
+  fill: var(--clr-violet);
+  
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.footer__attribute > p> a {
+  display: inline-flex !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__attribute > p> a:hover {
+  color: var(--clr-violet);
+}

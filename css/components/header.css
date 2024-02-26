@@ -1,0 +1,155 @@
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: hidden;
+  padding: 1.3rem 1rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--clr-dark);
+  z-index: 999;
+  border-bottom: 1px solid var(--clr-dark);
+  height: 84px;
+  box-shadow: 0 20px 30px rgba(145, 142, 142, 0.1);
+}
+
+header {
+  background-color: var(--clr-dark);
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo > a > svg {
+  width: 12rem;
+}
+
+.logo h1 {
+  color: var(--clr-violet);
+  font-size: var(--size-3xl);
+  font-weight: 700;
+  font-family: var(--dm-sans);
+}
+
+.header__menu {
+  display: none;
+}
+
+.header__menu li a {
+  font-size: var(--size-xs);
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.header__menu li a.contact-btn {
+  color: #f1f5f9 !important;
+}
+
+.header__menu li a:hover {
+  color: var(--clr-violet);
+}
+
+button > svg {
+  height: 2rem;
+  width: 2rem;
+  fill: var(--clr-violet);
+}
+
+.show__menu,
+.hide__menu {
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  padding: .05rem;
+}
+
+.show__menu:hover ,
+.hide__menu:hover {
+  background-color: var(--gray-700);
+}
+
+
+
+
+
+
+
+
+
+/* The mobile-first pre-defined media queries */
+
+/* xs */
+/* @media (min-width: 475px) {} */
+
+/* sm */
+/* @media (min-width: 640px) {} */
+
+/* md */
+ @media (min-width: 768px) {
+  .logo h1 {
+  color: var(--clr-violet);
+  font-size: var(--size-3xl);
+  font-weight: 700;
+  font-family: var(--dm-sans);
+}
+
+.header__menu {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 0;
+}
+
+.header__menu li a {
+  font-size: var(--size-sm);
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.header__menu li a.contact-btn {
+  color: #f1f5f9 !important;
+}
+
+button > svg {
+  height: 2rem;
+  width: 2rem;
+  fill: currentColor;
+}
+
+.show__menu {
+  display: none;
+}
+
+li > #theme-button {
+  font-size: var(--size-2xl);
+  color: var(--clr-text);
+  transition: all 0.4s;
+}
+} 
+
+/* lg */
+@media (min-width: 1024px) {
+  .logo > a > svg {
+    width: 14rem;
+  }
+
+  .header__menu li a {
+    font-size: var(--size-base);
+  }
+
+  .switch {
+    --width-of-switch: 3.6em;
+    --height-of-switch: 1.75em;
+    --size-of-icon: 1.4em;
+  }
+}
+
+/* xl */
+/* @media (min-width: 1280px) {} */
+
+/* 2xl */
+/* @media (min-width: 1536px) {} */
