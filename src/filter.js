@@ -1,19 +1,15 @@
 $(document).ready(function() {
-  // Initialize Isotope
   var $portfolios = $('.portfolios').isotope({
     itemSelector: '.portfolio-card',
     layoutMode: 'fitRows'
   });
 
-  // Add 'active' class to 'All' button initially
   $('.portfolio__filter-btn-container button[data-filter="*"]').addClass('active');
 
-  // Filter items on button click
   $('.portfolio__filter-btn-container').on('click', 'button', function() {
     var filterValue = $(this).attr('data-filter');
     $portfolios.isotope({ filter: filterValue });
 
-    // Add/remove active class on buttons
     $('.portfolio__filter-btn-container button').removeClass('active');
     $(this).addClass('active');
   });
