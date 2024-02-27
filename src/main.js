@@ -166,28 +166,23 @@ document.querySelector("#scrollTop").addEventListener("click", scrollToTop);
 
 // EmailJS Configuration
 
-let isSendingEmail = false; // Variable to check whether an email is currently being sent
+let isSendingEmail = false;
 
-// Event listener for form submit button
 document
   .getElementById("send-email")
   .addEventListener("click", function (event) {
-    event.preventDefault(); // Prevents default form submission behaviour
+    event.preventDefault();
 
-    // Checks whether email and other input types are valid or not
-    // Check if not already sending email and both form and email are valid
     if (!isSendingEmail && validateForm() && validateEmail()) {
-      sendEmail(); // If conditions are met, proceed to send email
+      sendEmail(); 
     }
   });
 
-// Checks whether the email format is valid or not
 function validateEmail() {
   let email = document.getElementById("email").value.trim();
   let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!emailPattern.test(email)) {
-    // Display an error message for invalid email format
     document
       .getElementById("emailInputTooltip")
       .classList.add("show-email__tooltip");
@@ -202,18 +197,15 @@ function validateEmail() {
   }
 }
 
-// function to validate the entire form
 function validateForm() {
-  // Get values of all form fields
+
   let name = document.getElementById("name").value.trim();
   let email = document.getElementById("email").value.trim();
   let project = document.getElementById("project").value.trim();
   let comment = document.getElementById("comment").value.trim();
 
-  // Check if any of the fields are empty
 
   if (name === "" || email === "" || project === "" || comment === "") {
-    // If any field is empty, display a tooltip or an error message
     document.getElementById("validate").classList.add("show-validate-tooltip");
     setTimeout(() => {
       document
@@ -221,15 +213,14 @@ function validateForm() {
         .classList.remove("show-validate-tooltip");
     }, 2000);
 
-    return false; // Return false to indicate validation failure
+    return false; 
   }
-  return true; // Return true if all fields are filled, indicating validation success
+  return true; 
 }
 
-// Function to send the email
 
 function sendEmail() {
-  isSendingEmail = true; // Set flag to indicate email sending process has started
+  isSendingEmail = true; 
 
   // Extract form data
   let params = {
@@ -239,14 +230,13 @@ function sendEmail() {
     comment: document.getElementById("comment").value,
   };
 
-  const serviceID = "service_y11rpz4";
-  const templateID = "template_qfvofr9";
+  const serviceID = "";
+  const templateID = "";
 
-  // Send email using emailjs library
   emailjs
     .send(serviceID, templateID, params)
     .then((res) => {
-      // If email sent successfully, clear form inputs and display success message
+
       document.getElementById("name").value = "";
       document.getElementById("email").value = "";
       document.getElementById("project").value = "";
@@ -259,9 +249,8 @@ function sendEmail() {
           .classList.remove("show-tooltip");
       }, 2000);
     })
-    .catch((err) => console.log(err)) // Log any errors that occur during email sending process
+    .catch((err) => console.log(err)) 
     .finally(() => {
-      // Reset the flag once the email sending process is completed
       isSendingEmail = false;
     });
 }
